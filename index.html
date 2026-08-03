@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daniel Yarmoluk — AI Solutions Architect / Forward Deployed Engineer</title>
+<meta name="description" content="AI Solutions Architect and Forward Deployed Engineer. I build the protocol layer that lets agents act on trustworthy context. MCP, A2A, and Compressed Knowledge Graphs — benchmarked, published, running in production.">
+<meta name="author" content="Daniel Yarmoluk">
+<link rel="canonical" href="https://yarmoluk.github.io/">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Daniel Yarmoluk — AI Solutions Architect / Forward Deployed Engineer">
+<meta property="og:description" content="I build the protocol layer that lets agents act on trustworthy context. MCP, A2A, and Compressed Knowledge Graphs — benchmarked, published, running in production.">
+<meta property="og:url" content="https://yarmoluk.github.io/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>">
+<style>
+:root{
+  --bg:#fbfbfa; --panel:#fff; --ink:#16181d; --muted:#5d636e; --faint:#8b919c;
+  --line:#e4e6ea; --accent:#1a5fd0; --accent-soft:#eef3fd; --good:#0f6e56;
+  --code-bg:#f4f5f7; --shadow:0 1px 2px rgba(16,20,30,.05),0 8px 24px rgba(16,20,30,.05);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0e1014; --panel:#161920; --ink:#e9ecf1; --muted:#9aa2b0; --faint:#6f7787;
+    --line:#262b35; --accent:#6ea1f5; --accent-soft:#172234; --good:#4fbf9c;
+    --code-bg:#11141a; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="light"]{
+  --bg:#fbfbfa; --panel:#fff; --ink:#16181d; --muted:#5d636e; --faint:#8b919c;
+  --line:#e4e6ea; --accent:#1a5fd0; --accent-soft:#eef3fd; --good:#0f6e56;
+  --code-bg:#f4f5f7; --shadow:0 1px 2px rgba(16,20,30,.05),0 8px 24px rgba(16,20,30,.05);
+}
+:root[data-theme="dark"]{
+  --bg:#0e1014; --panel:#161920; --ink:#e9ecf1; --muted:#9aa2b0; --faint:#6f7787;
+  --line:#262b35; --accent:#6ea1f5; --accent-soft:#172234; --good:#4fbf9c;
+  --code-bg:#11141a; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+  font-size:16px; line-height:1.62; letter-spacing:-.003em;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:820px;margin:0 auto;padding:0 22px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code,kbd{font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;font-size:.88em}
+
+/* ---------- hero ---------- */
+header{padding:64px 0 34px;border-bottom:1px solid var(--line)}
+h1{font-size:clamp(30px,6vw,40px);line-height:1.12;margin:0 0 6px;letter-spacing:-.025em;font-weight:680}
+.role{font-size:clamp(15px,3.4vw,17.5px);color:var(--ink);font-weight:600;margin:0 0 14px;letter-spacing:-.01em}
+.lede{font-size:clamp(16px,3.6vw,18.5px);color:var(--muted);margin:0 0 8px;max-width:36em;line-height:1.55}
+.loc{font-size:14px;color:var(--faint);margin:0 0 24px}
+.loc b{color:var(--good);font-weight:600}
+.cta{display:flex;flex-wrap:wrap;gap:9px}
+.btn{
+  display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:8px;
+  font-size:14.5px;font-weight:560;border:1px solid var(--line);background:var(--panel);
+  color:var(--ink);transition:border-color .15s,transform .05s;
+}
+.btn:hover{text-decoration:none;border-color:var(--accent)}
+.btn:active{transform:translateY(1px)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover{opacity:.92}
+
+/* ---------- metric strip ---------- */
+.metrics{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));
+  gap:0;border-bottom:1px solid var(--line);
+}
+.metric{padding:20px 4px 20px 0}
+.metric .n{font-size:clamp(21px,4.6vw,26px);font-weight:700;letter-spacing:-.02em;line-height:1.1;font-variant-numeric:tabular-nums}
+.metric .l{font-size:12.2px;color:var(--faint);margin-top:3px;line-height:1.4}
+
+/* ---------- sections ---------- */
+section{padding:44px 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 20px}
+h3{font-size:18px;font-weight:640;margin:0 0 7px;letter-spacing:-.015em}
+p{margin:0 0 14px}
+.sub{color:var(--muted);font-size:15.2px}
+
+.card{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:22px 24px;margin-bottom:16px;box-shadow:var(--shadow)}
+.card:last-child{margin-bottom:0}
+
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:16px 0 6px}
+table{border-collapse:collapse;width:100%;font-size:14.4px;min-width:400px}
+th,td{padding:8px 12px;text-align:right;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+th:first-child,td:first-child{text-align:left;font-variant-numeric:normal}
+thead th{font-size:11.4px;text-transform:uppercase;letter-spacing:.07em;color:var(--faint);font-weight:650}
+tbody tr:last-child td{border-bottom:0}
+td.win{color:var(--good);font-weight:700}
+
+pre{
+  background:var(--code-bg);border:1px solid var(--line);border-radius:9px;
+  padding:14px 16px;overflow-x:auto;-webkit-overflow-scrolling:touch;
+  font-size:13px;line-height:1.6;margin:14px 0;
+}
+pre code{font-size:inherit}
+.cmt{color:var(--faint)}
+.str{color:var(--good)}
+
+ul.plain{list-style:none;padding:0;margin:0}
+ul.plain li{padding:9px 0;border-bottom:1px solid var(--line);font-size:14.8px}
+ul.plain li:last-child{border-bottom:0}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:640px){.two{grid-template-columns:1fr}}
+
+.tag{
+  display:inline-block;padding:2px 9px;border-radius:20px;background:var(--accent-soft);
+  color:var(--accent);font-size:12px;font-weight:600;margin:0 5px 6px 0;white-space:nowrap;
+}
+
+/* ---------- experience ---------- */
+.job{padding:16px 0;border-bottom:1px solid var(--line)}
+.job:last-child{border-bottom:0}
+.job .hd{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:3px}
+.job .co{font-weight:650;font-size:15.6px}
+.job .yr{font-size:13px;color:var(--faint);font-variant-numeric:tabular-nums;white-space:nowrap}
+.job .ti{font-size:14.2px;color:var(--muted);margin-bottom:5px}
+.job .ds{font-size:14.2px;color:var(--muted)}
+
+/* ---------- resume table ---------- */
+.rez{display:grid;gap:9px}
+.rezrow{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  padding:13px 16px;border:1px solid var(--line);border-radius:9px;background:var(--panel);
+}
+.rezrow .nm{font-weight:600;font-size:14.8px}
+.rezrow .dl{display:flex;gap:7px;flex-shrink:0}
+.dlbtn{
+  font-size:12.6px;font-weight:640;padding:5px 11px;border-radius:6px;
+  border:1px solid var(--line);color:var(--muted);letter-spacing:.02em;
+}
+.dlbtn:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+
+footer{padding:38px 0 56px;font-size:14px;color:var(--faint)}
+footer a{color:var(--muted)}
+.note{font-size:13.4px;color:var(--faint);line-height:1.6;margin-top:14px}
+
+#themer{
+  position:fixed;top:14px;right:14px;width:34px;height:34px;border-radius:8px;
+  border:1px solid var(--line);background:var(--panel);color:var(--muted);
+  cursor:pointer;font-size:15px;line-height:1;z-index:9;
+}
+#themer:hover{color:var(--ink)}
+@media print{#themer{display:none}}
+</style>
+</head>
+<body>
+
+<button id="themer" aria-label="Toggle colour theme" title="Toggle theme">◐</button>
+
+<div class="wrap">
+
+<header>
+  <h1>Daniel Yarmoluk</h1>
+  <p class="role">AI Solutions Architect &middot; Forward Deployed Engineer</p>
+  <p class="lede">I build the protocol layer that lets agents act on trustworthy context — and I deploy it into the customer's environment, not a demo.</p>
+  <p class="loc">Minneapolis, MN &nbsp;·&nbsp; <b>Open to remote</b> &nbsp;·&nbsp; AI Solutions Architect, Forward Deployed Engineer, Agentic AI Architect</p>
+  <div class="cta">
+    <a class="btn primary" href="#resume">Resume &darr;</a>
+    <a class="btn" href="https://github.com/Yarmoluk">GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/danyarmoluk">LinkedIn</a>
+    <a class="btn" href="mailto:daniel.yarmoluk@gmail.com">Email</a>
+  </div>
+</header>
+
+<div class="metrics">
+  <div class="metric"><div class="n">3.8&times;</div><div class="l">answer quality vs RAG</div></div>
+  <div class="metric"><div class="n">11&times;</div><div class="l">fewer tokens per query</div></div>
+  <div class="metric"><div class="n">307</div><div class="l">domain graphs authored</div></div>
+  <div class="metric"><div class="n">12</div><div class="l">packages on PyPI</div></div>
+  <div class="metric"><div class="n">6</div><div class="l">live MCP services</div></div>
+</div>
+
+<section>
+  <h2>What I do</h2>
+  <p>Fifteen years of enterprise architecture, the last of them spent building agent infrastructure end to end — protocol, provenance, payment and the benchmark that says whether any of it actually works.</p>
+  <p class="sub">Most of what follows is public and re-runnable. The benchmark can be cloned. The agent cards answer a <code>curl</code>. That is deliberate: claims about AI systems should be checkable by the person reading them.</p>
+  <div style="margin-top:16px">
+    <span class="tag">Agentic AI architecture</span><span class="tag">Model Context Protocol</span><span class="tag">Agent-to-Agent</span><span class="tag">RAG &amp; vector search</span><span class="tag">Knowledge graphs</span><span class="tag">LangChain</span><span class="tag">Semantic Kernel</span><span class="tag">CrewAI</span><span class="tag">AutoGen</span><span class="tag">Python</span><span class="tag">AWS · Azure · GCP</span><span class="tag">Evaluation &amp; benchmarking</span>
+  </div>
+</section>
+
+<section>
+  <h2>Selected work</h2>
+
+  <div class="card">
+    <h3>Compressed Knowledge Graphs</h3>
+    <p class="sub">RAG chunks prose and retrieves by embedding similarity, which throws away the relationships. A CKG stores relationships as typed, authored edges and traverses them. Every answer traces to a source URL and a SHA-256 of the bytes it was authored from.</p>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th></th><th>CKG</th><th>RAG</th><th>GraphRAG</th></tr></thead>
+        <tbody>
+          <tr><td>macro-F1</td><td class="win">0.471</td><td>0.123</td><td>0.120</td></tr>
+          <tr><td>tokens per query</td><td class="win">269</td><td>2,982</td><td>&mdash;</td></tr>
+          <tr><td>F1 at 5-hop depth</td><td class="win">0.772</td><td>0.170</td><td>&mdash;</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">44 domains, 7,758 queries, locked at v0.6.2. The last row is the one that matters — the advantage <em>grows</em> with question complexity, because multi-hop composition is where embedding methods are weakest.</p>
+    <p style="margin-top:14px"><a href="https://github.com/Yarmoluk/ckg-benchmark">Clone the benchmark and re-run it &rarr;</a> &nbsp;·&nbsp; <a href="https://huggingface.co/datasets/danyarm/ckg-benchmark">Dataset on Hugging Face</a> (CC-BY-4.0)</p>
+    <p class="note">The repo includes a reconciliation document correcting my own published cost figures — an earlier version priced CKG and the baselines against different models, which inflated the ratio. Numbers I can't defend are worse than no numbers.</p>
+  </div>
+
+  <div class="card">
+    <h3>Agent economics you can query before you spend</h3>
+    <p class="sub">Every MCP server I run publishes an A2A agent card stating its own economics, so a calling agent can decide whether invoking is worth it <em>before</em> it commits anything.</p>
+<pre><code>curl -s https://ckg-nvidia-ai.onrender.com/.well-known/agent-card.json | jq .economics</code></pre>
+<pre><code>{
+  <span class="str">"price_usd_per_call"</span>: 0.010,
+  <span class="str">"mean_tokens_returned"</span>: 269,
+  <span class="str">"baseline_mean_tokens"</span>: 2982,      <span class="cmt">// RAG over the same corpus</span>
+  <span class="str">"tokens_saved_per_call"</span>: 2713,
+  <span class="str">"breakeven_input_price_usd_per_mtok"</span>: 3.69,
+  <span class="str">"decision_rule"</span>: <span class="cmt">"…pays for itself on token cost alone when your
+                     input price exceeds $3.69 per million tokens.
+                     Below that, invoke only when quality matters."</span>
+}</code></pre>
+    <p class="note">That last field is the point: <strong>it tells you when not to call it.</strong> A card that claims savings at every price is one a good agent should distrust.</p>
+  </div>
+
+  <div class="two">
+    <div class="card">
+      <h3>Model Context Protocol</h3>
+      <p class="sub">Tool and output schema design · JSON-RPC initialize handshake · streamable HTTP and SSE transport · session management · DNS-rebinding transport security · per-method metering · rate limiting · MCP-native observability.</p>
+      <p class="note">Built, shipped and debugged in production — including the failure modes that don't show up on a dashboard.</p>
+    </div>
+    <div class="card">
+      <h3>Agent-to-Agent</h3>
+      <p class="sub">Agent cards advertising skills, auth, payment terms and machine-readable economics · x402 / HTTP 402 · EIP-3009 signed authorizations · Coinbase CDP facilitator · Base settlement · ERC-8004 agent identity.</p>
+      <p class="note">The commerce layer agents will need once they start calling each other without a human in the loop.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Framework-agnostic by protocol</h3>
+    <p class="sub">The same servers register unchanged in Semantic Kernel, LangChain, LangGraph, AutoGen, CrewAI, GitHub Copilot, Claude and Cursor. Integration happens at the protocol layer, so framework choice stays the caller's decision.</p>
+<pre><code><span class="cmt"># Microsoft Semantic Kernel consumes an MCP server directly — no bridging code</span>
+from semantic_kernel import Kernel
+from semantic_kernel.connectors.mcp import MCPStreamableHttpPlugin
+
+async with MCPStreamableHttpPlugin(
+    name=<span class="str">"ckg"</span>, url=<span class="str">"https://ckg-nvidia-ai.onrender.com/mcp"</span>
+) as plugin:
+    kernel = Kernel()
+    kernel.add_plugin(plugin, plugin_name=<span class="str">"ckg"</span>)   <span class="cmt"># 9 tools → kernel functions</span></code></pre>
+  </div>
+</section>
+
+<section>
+  <h2>Published</h2>
+  <ul class="plain">
+    <li><a href="https://pypi.org/project/ckg-nvidia-ai/"><strong>ckg-nvidia-ai</strong></a> &mdash; NVIDIA developer stack, 20 domains, metered free tier, x402 payment challenge</li>
+    <li><a href="https://pypi.org/project/ckg-nvidia-nemoclaw/"><strong>ckg-nvidia-nemoclaw</strong></a> &mdash; typed traversal with per-node source provenance</li>
+    <li><a href="https://pypi.org/project/ckg-agentforce/"><strong>ckg-agentforce</strong></a> &mdash; Salesforce Agentforce, license-gated tool surface</li>
+    <li><a href="https://pypi.org/project/langchain-ckg/"><strong>langchain-ckg</strong></a> &mdash; LangChain retriever with API-key auth and 402 handling</li>
+    <li><a href="https://github.com/Yarmoluk/zep-ckg"><strong>zep-ckg</strong></a> &mdash; Graphiti (Zep) plus CKG as a two-layer context agent</li>
+    <li><a href="https://github.com/Yarmoluk/skills-1"><strong>Agent Skills</strong></a> &mdash; public Claude Code skills</li>
+  </ul>
+  <p class="note">12 packages on PyPI across 100+ releases &middot; full catalog at <a href="https://pypi.org/user/danyarm/">pypi.org/user/danyarm</a></p>
+</section>
+
+<section>
+  <h2>Experience</h2>
+
+  <div class="job">
+    <div class="hd"><span class="co">Graphify.md</span><span class="yr">2026 &ndash; present</span></div>
+    <div class="ti">Founder &middot; Agent Infrastructure</div>
+    <div class="ds">Designed and shipped the CKG retrieval architecture, six production MCP services, twelve published packages and the benchmark measuring all of it against RAG and Microsoft GraphRAG. Patent pending.</div>
+  </div>
+
+  <div class="job">
+    <div class="hd"><span class="co">Slalom Consulting</span><span class="yr">2023 &ndash; 2026</span></div>
+    <div class="ti">Principal &mdash; Solution Owner, AI and Digital Transformation</div>
+    <div class="ds">Enterprise AI programs for Fortune 500 clients across healthcare, retail and supply chain — UnitedHealthcare, Best Buy, Cargill. Production-readiness, monitoring and evaluation frameworks for HIPAA-regulated environments. Platform integration across Anthropic, OpenAI, Azure OpenAI Service and AWS SageMaker.</div>
+  </div>
+
+  <div class="job">
+    <div class="hd"><span class="co">West Monroe Partners</span><span class="yr">2021 &ndash; 2023</span></div>
+    <div class="ti">Lead Solution Architect, Industrial IoT and Commercial AI</div>
+    <div class="ds">AI and IoT architecture for industrial and commercial clients, from sensing through to decision systems.</div>
+  </div>
+
+  <div class="job">
+    <div class="hd"><span class="co">ATEK Access Technologies</span><span class="yr">earlier</span></div>
+    <div class="ti">Director, Data Science and IoT</div>
+    <div class="ds">Built a data science and IoT practice from zero.</div>
+  </div>
+
+  <div class="job">
+    <div class="hd"><span class="co">University of St. Thomas</span><span class="yr">adjunct</span></div>
+    <div class="ti">Adjunct Professor &mdash; Graduate AI Systems</div>
+    <div class="ds">Graduate Degree, Data Science. Featured in CIO Dive.</div>
+  </div>
+</section>
+
+<section id="resume">
+  <h2>Resume</h2>
+  <p class="sub">Five variants, same verified history, each written for a different role. <code>.docx</code> parses more reliably in applicant tracking systems; the PDF is the one to read.</p>
+  <div class="rez" style="margin-top:18px">
+    <div class="rezrow"><span class="nm">AI Solutions Architect</span><span class="dl"><a class="dlbtn" href="resume/daniel-yarmoluk-solutions-architect.pdf">PDF</a><a class="dlbtn" href="resume/daniel-yarmoluk-solutions-architect.docx">DOCX</a></span></div>
+    <div class="rezrow"><span class="nm">Forward Deployed Engineer</span><span class="dl"><a class="dlbtn" href="resume/daniel-yarmoluk-forward-deployed-engineer.pdf">PDF</a><a class="dlbtn" href="resume/daniel-yarmoluk-forward-deployed-engineer.docx">DOCX</a></span></div>
+    <div class="rezrow"><span class="nm">Agentic AI Architect</span><span class="dl"><a class="dlbtn" href="resume/daniel-yarmoluk-agentic-ai-architect.pdf">PDF</a><a class="dlbtn" href="resume/daniel-yarmoluk-agentic-ai-architect.docx">DOCX</a></span></div>
+    <div class="rezrow"><span class="nm">AI Architect &mdash; enterprise adoption</span><span class="dl"><a class="dlbtn" href="resume/daniel-yarmoluk-ai-architect.pdf">PDF</a><a class="dlbtn" href="resume/daniel-yarmoluk-ai-architect.docx">DOCX</a></span></div>
+    <div class="rezrow"><span class="nm">MCP / A2A Engineer</span><span class="dl"><a class="dlbtn" href="resume/daniel-yarmoluk-mcp-a2a-engineer.pdf">PDF</a><a class="dlbtn" href="resume/daniel-yarmoluk-mcp-a2a-engineer.docx">DOCX</a></span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Contact</h2>
+  <p><a href="mailto:daniel.yarmoluk@gmail.com">daniel.yarmoluk@gmail.com</a></p>
+  <p class="sub" style="margin-bottom:0">
+    <a href="https://www.linkedin.com/in/danyarmoluk">LinkedIn</a> &nbsp;·&nbsp;
+    <a href="https://github.com/Yarmoluk">GitHub</a> &nbsp;·&nbsp;
+    <a href="https://pypi.org/user/danyarm/">PyPI</a> &nbsp;·&nbsp;
+    <a href="https://huggingface.co/danyarm">Hugging Face</a> &nbsp;·&nbsp;
+    <a href="https://graphifymd.com">Graphify.md</a>
+  </p>
+</section>
+
+<footer>
+  Minneapolis, MN &middot; open to remote. Every number on this page is measured and re-runnable.
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var r=document.documentElement, b=document.getElementById('themer');
+  var saved=null; try{saved=localStorage.getItem('theme')}catch(e){}
+  if(saved) r.setAttribute('data-theme',saved);
+  b.addEventListener('click',function(){
+    var cur=r.getAttribute('data-theme');
+    if(!cur) cur=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+    var next=cur==='dark'?'light':'dark';
+    r.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next)}catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
